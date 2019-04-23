@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Abp.Castle.Log4Net" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\AbpDemo.Core\AbpDemo.Core.csproj" />
     <ProjectReference Include="..\AbpDemo.EntityFrameworkCore\AbpDemo.EntityFrameworkCore.csproj" />
   </ItemGroup>
