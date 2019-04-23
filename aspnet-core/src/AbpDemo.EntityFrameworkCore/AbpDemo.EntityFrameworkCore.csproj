@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AbpDemo.Core\AbpDemo.Core.csproj" />
+  </ItemGroup>
+
 </Project>
