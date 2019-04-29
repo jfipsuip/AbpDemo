@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using AbpDemo.Configuration;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 
 namespace AbpDemo.Configuration
@@ -7,7 +8,7 @@ namespace AbpDemo.Configuration
     {
         public static IConfigurationRoot GetAppConfiguration(this IHostingEnvironment env)
         {
-            return AppConfigurations.Get(env.ContentRootPath, env.EnvironmentName, env.IsDevelopment());
+            return AppConfigurations.Get(env.ContentRootPath, env.EnvironmentName);
         }
     }
 }
