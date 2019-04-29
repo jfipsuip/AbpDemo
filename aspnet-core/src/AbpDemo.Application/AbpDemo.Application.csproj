@@ -5,6 +5,10 @@
     <RootNamespace>AbpDemo</RootNamespace>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>..//AbpDemo.Web.Host//wwwroot//swagger.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\AbpDemo.Core\AbpDemo.Core.csproj" />
   </ItemGroup>
