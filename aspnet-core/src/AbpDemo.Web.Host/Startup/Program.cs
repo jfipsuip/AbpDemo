@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace AbpDemo.Web.Host
+namespace AbpDemo.Web.Host.Startup
 {
     public class Program
     {
