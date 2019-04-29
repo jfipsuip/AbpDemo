@@ -1,5 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
+using AbpDemo.Configuration;
+using AbpDemo.Web;
 
 namespace AbpDemo.EntityFrameworkCore
 {
@@ -9,8 +12,9 @@ namespace AbpDemo.EntityFrameworkCore
         public AbpDemoDbContext CreateDbContext(string[] args)
         {
             var builder = new DbContextOptionsBuilder<AbpDemoDbContext>();
+            var configuration = AppConfigurations.Get(WebContentDirectoryFinder.CalculateContentRootFolder());
 
-            AbpDemoDbContextConfigurer.Configure(builder, "Server=localhost; Database=AbpDemoDb; Trusted_Connection=True;");
+            AbpDemoDbContextConfigurer.Configure(builder, configuration.GetConnectionString(AbpDemoConsts.ConnectionStringName));
 
             return new AbpDemoDbContext(builder.Options);
         }
