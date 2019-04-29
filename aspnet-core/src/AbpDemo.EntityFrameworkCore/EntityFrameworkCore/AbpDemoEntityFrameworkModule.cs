@@ -1,4 +1,5 @@
-﻿using Abp.EntityFrameworkCore.Configuration;
+﻿using Abp.EntityFrameworkCore;
+using Abp.EntityFrameworkCore.Configuration;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
 using Abp.Zero.EntityFrameworkCore;
@@ -7,7 +8,7 @@ namespace AbpDemo.EntityFrameworkCore
 {
     [DependsOn(
         typeof(AbpDemoCoreModule),
-        typeof(AbpZeroCoreEntityFrameworkCoreModule))]
+        typeof(AbpEntityFrameworkCoreModule))]
     public class AbpDemoEntityFrameworkModule : AbpModule
     {
         /* Used it tests to skip dbcontext registration, in order to use in-memory database of EF Core */
