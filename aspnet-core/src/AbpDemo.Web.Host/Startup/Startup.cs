@@ -110,54 +110,15 @@ namespace AbpDemo.Web.Host.Startup
             );
 
             // Swagger - Enable this line and the related lines in Configure method to enable swagger UI
-            services.AddSwaggerGen(options =>
-            {
-                options.SwaggerDoc("v1", new Info { Title = "zyGIS API", Version = "v1" });
-                options.SwaggerDoc("用户权限", new Info { Title = "用户权限 API", Version = "用户权限" });
-                options.DocInclusionPredicate((docName, description) =>
-                {
-                    if (description.GroupName != docName)
-                    {
-                        // GroupName = "用户权限" docName = "v1"
-                        if (!new string[] { "用户权限" }.Contains(description.GroupName) && docName == "v1")
-                        {
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                    var classInfo = ((Microsoft.AspNetCore.Mvc.Controllers.ControllerActionDescriptor)description.ActionDescriptor);
-                    var attributes = classInfo.MethodInfo.CustomAttributes;
-                    if (true)
-                    //if (attributes.Count(t => t.AttributeType == typeof(HiddenApiAttribute)) == 0)
-                    {
-                        if (new string[] { "CreateByBatch", "UpdateByBatch", "UpdateDeleteByBatch", "GetAll" }.Contains(classInfo.MethodInfo.Name))
-                        {
-                            return false;
-                        }
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                });
 
-                // Define the BearerAuth scheme that's in use
-                options.AddSecurityDefinition("bearerAuth", new ApiKeyScheme()
-                {
-                    Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
-                    Name = "Authorization",
-                    In = "header",
-                    Type = "apiKey"
-                });
-                //options.DocumentFilter<HiddenApiFilter>();
-                //options.DocumentFilter<CustomDocumentFiliter>();
-                // Assign scope requirements to operations based on AuthorizeAttribute
-                //options.OperationFilter<SecurityRequirementsOperationFilter>();
-                //获取项目指定路径下xml文件
-                options.IncludeXmlComments(Path.Combine(_webRootPath, "swagger.xml"));
+            // Register the Swagger generator, defining 1 or more Swagger documents
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+                c.DocInclusionPredicate((docName, description) =>
+                 {
+                     return true;
+                 });
             });
 
             //注入AbpDemoDbContext
@@ -215,30 +176,15 @@ namespace AbpDemo.Web.Host.Startup
             });
 
             //Enable middleware to serve generated Swagger as a JSON endpoint
-            app.UseSwagger(c =>
-            {
-                c.RouteTemplate = "swagger/{documentName}/swagger.json";
-            });
 
-            //Enable middleware to serve swagger-ui assets (HTML, JS, CSS etc.)
-            app.UseSwaggerUI(options =>
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
             {
-                string url;
-                if (_appConfiguration["App:ServerRootAddress"].IsNullOrEmpty())
-                {
-                    url = string.Empty;
-                }
-                else
-                {
-                    url = _appConfiguration["App:ServerRootAddress"] + "/swagger/";
-                }
-                //options.InjectOnCompleteJavaScript($"{url}ui/abp.js");
-                //options.InjectOnCompleteJavaScript($"{url}ui/on-complete.js");
-                //options.InjectOnCompleteJavaScript($"{url}ui/swagger.js"); // 加载中文包
-                options.InjectStylesheet($"{url}ui/swagger.css"); // 加载中文包
-                options.SwaggerEndpoint($"{url}v1/swagger.json", "Web API V1");
-                options.SwaggerEndpoint($"{url}用户权限/swagger.json", "用户权限");
-            }); // URL: /swagger
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
         }
 
         //#if FEATURE_SIGNALR
