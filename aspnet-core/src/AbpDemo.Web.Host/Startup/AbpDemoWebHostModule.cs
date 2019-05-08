@@ -10,7 +10,7 @@ namespace AbpDemo.Web.Host.Startup
     /// 
     /// </summary>
     [DependsOn(typeof(AbpDemoWebCoreModule))]
-    public class AbpDemoWebModule : AbpModule
+    public class AbpDemoWebHostModule : AbpModule
     {
         private readonly IHostingEnvironment _env;
         private readonly IConfigurationRoot _appConfiguration;
@@ -19,7 +19,7 @@ namespace AbpDemo.Web.Host.Startup
         /// 
         /// </summary>
         /// <param name="env"></param>
-        public AbpDemoWebModule(IHostingEnvironment env)
+        public AbpDemoWebHostModule(IHostingEnvironment env)
         {
             _env = env;
             _appConfiguration = env.GetAppConfiguration();
@@ -42,7 +42,7 @@ namespace AbpDemo.Web.Host.Startup
         /// </summary>
         public override void Initialize()
         {
-            IocManager.RegisterAssemblyByConvention(typeof(AbpDemoWebModule).GetAssembly());
+            IocManager.RegisterAssemblyByConvention(typeof(AbpDemoWebHostModule).GetAssembly());
         }
     }
 }
