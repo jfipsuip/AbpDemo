@@ -1,7 +1,6 @@
 ﻿using Abp.AutoMapper;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
-using AbpDemo.Authorization;
 
 namespace AbpDemo
 {
@@ -10,11 +9,6 @@ namespace AbpDemo
         typeof(AbpAutoMapperModule))]
     public class AbpDemoApplicationModule : AbpModule
     {
-        public override void PreInitialize()
-        {
-            Configuration.Authorization.Providers.Add<AbpDemoAuthorizationProvider>();
-        }
-
         public override void Initialize()
         {
             var thisAssembly = typeof(AbpDemoApplicationModule).GetAssembly();

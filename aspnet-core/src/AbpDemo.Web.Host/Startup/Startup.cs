@@ -37,7 +37,7 @@ namespace AbpDemo.Web.Host.Startup
                 options => options.Filters.Add(new CorsAuthorizationFilterFactory(_defaultCorsPolicyName))
             );
 
-            IdentityRegistrar.Register(services);
+            //IdentityRegistrar.Register(services);
             AuthConfigurer.Configure(services, _appConfiguration);
 
             services.AddSignalR();

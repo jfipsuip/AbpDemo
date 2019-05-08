@@ -1,12 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Abp.Zero.EntityFrameworkCore;
-using AbpDemo.Authorization.Roles;
-using AbpDemo.Authorization.Users;
-using AbpDemo.MultiTenancy;
+﻿using Abp.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace AbpDemo.EntityFrameworkCore
 {
-    public class AbpDemoDbContext : AbpZeroDbContext<Tenant, Role, User, AbpDemoDbContext>
+    public class AbpDemoDbContext : AbpDbContext
     {
         /* Define a DbSet for each entity of the application */
         

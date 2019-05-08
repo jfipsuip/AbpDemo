@@ -1,14 +1,13 @@
-﻿using Abp.EntityFrameworkCore.Configuration;
+﻿using Abp.EntityFrameworkCore;
+using Abp.EntityFrameworkCore.Configuration;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
-using Abp.Zero.EntityFrameworkCore;
-using AbpDemo.EntityFrameworkCore.Seed;
 
 namespace AbpDemo.EntityFrameworkCore
 {
     [DependsOn(
         typeof(AbpDemoCoreModule), 
-        typeof(AbpZeroCoreEntityFrameworkCoreModule))]
+        typeof(AbpEntityFrameworkCoreModule))]
     public class AbpDemoEntityFrameworkModule : AbpModule
     {
         /* Used it tests to skip dbcontext registration, in order to use in-memory database of EF Core */
@@ -37,14 +36,6 @@ namespace AbpDemo.EntityFrameworkCore
         public override void Initialize()
         {
             IocManager.RegisterAssemblyByConvention(typeof(AbpDemoEntityFrameworkModule).GetAssembly());
-        }
-
-        public override void PostInitialize()
-        {
-            if (!SkipDbSeed)
-            {
-                SeedHelper.SeedHostDb(IocManager);
-            }
         }
     }
 }

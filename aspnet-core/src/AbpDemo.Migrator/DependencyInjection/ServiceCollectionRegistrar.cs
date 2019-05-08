@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Castle.Windsor.MsDependencyInjection;
 using Abp.Dependency;
-using AbpDemo.Identity;
+//using AbpDemo.Identity;
 
 namespace AbpDemo.Migrator.DependencyInjection
 {
@@ -11,7 +11,7 @@ namespace AbpDemo.Migrator.DependencyInjection
         {
             var services = new ServiceCollection();
 
-            IdentityRegistrar.Register(services);
+            //IdentityRegistrar.Register(services);
 
             WindsorRegistrationHelper.CreateServiceProvider(iocManager.IocContainer, services);
         }
