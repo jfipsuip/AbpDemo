@@ -25,18 +25,6 @@ namespace AbpDemo.Web.Host.Startup
             _appConfiguration = env.GetAppConfiguration();
         }
 
-        //public override void PreInitialize()
-        //{
-        //    Configuration.DefaultNameOrConnectionString = _appConfiguration.GetConnectionString(AbpDemoConsts.ConnectionStringName);
-
-        //    Configuration.Navigation.Providers.Add<AbpDemoNavigationProvider>();
-
-        //    Configuration.Modules.AbpAspNetCore()
-        //        .CreateControllersForAppServices(
-        //            typeof(AbpDemoApplicationModule).GetAssembly()
-        //        );
-        //}
-
         /// <summary>
         /// 
         /// </summary>

@@ -27,8 +27,8 @@ namespace AbpDemo
          typeof(AbpDemoApplicationModule),
          typeof(AbpDemoEntityFrameworkModule),
          typeof(AbpAspNetCoreModule)//,
-         //typeof(AbpRedisCacheModule)
-#if FEATURE_SIGNALR 
+                                    //typeof(AbpRedisCacheModule)
+#if FEATURE_SIGNALR
         ,typeof(AbpWebSignalRModule)
 #elif FEATURE_SIGNALR_ASPNETCORE
         ,typeof(AbpAspNetCoreSignalRModule)
@@ -51,75 +51,13 @@ namespace AbpDemo
                 AbpDemoConsts.ConnectionStringName
             );
 
-            // Use database for language management
-            //Configuration.Modules.Zero().LanguageManagement.EnableDbLocalization();
-
             Configuration.Modules.AbpAspNetCore()
                  .CreateControllersForAppServices(
                      typeof(AbpDemoApplicationModule).GetAssembly()
                  );
 
             //设置不隐藏异常信息
-            Configuration.Modules.AbpWebCommon().SendAllExceptionsToClients = Convert.ToBoolean(_appConfiguration["AppSettings:SendAllExceptionsToClients"]);
-
-            #region 缓存配置
-            /*
-            //配置所有Cache的默认过期时间30天
-            Configuration.Caching.ConfigureAll(cache =>
-            {
-                cache.DefaultSlidingExpireTime = TimeSpan.FromDays(30);
-            });
-
-            //配置指定的Cache过期时间为45秒
-            Configuration.Caching.Configure("LoginTokenCache", cache =>
-            {
-                cache.DefaultSlidingExpireTime = TimeSpan.FromSeconds(45);
-            });
-
-            Configuration.Caching.UseRedis(options =>
-            {
-                options.ConnectionString = _appConfiguration["Abp:RedisCache:ConnectionString"];
-                options.DatabaseId = _appConfiguration.GetValue<int>("Abp:RedisCache:DatabaseId");
-            });
-            */
-            #endregion
-
-            ConfigureTokenAuth();
-            ConfigureAppSettings();
-        }
-
-        private void ConfigureTokenAuth()
-        {
-            IocManager.Register<TokenAuthConfiguration>();
-            var tokenAuthConfig = IocManager.Resolve<TokenAuthConfiguration>();
-
-            tokenAuthConfig.SecurityKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_appConfiguration["Authentication:JwtBearer:SecurityKey"]));
-            tokenAuthConfig.Issuer = _appConfiguration["Authentication:JwtBearer:Issuer"];
-            tokenAuthConfig.Audience = _appConfiguration["Authentication:JwtBearer:Audience"];
-            tokenAuthConfig.SigningCredentials = new SigningCredentials(tokenAuthConfig.SecurityKey, SecurityAlgorithms.HmacSha256);
-            //tokenAuthConfig.Expiration = TimeSpan.FromMinutes(60);
-            tokenAuthConfig.Expiration = TimeSpan.FromSeconds(30);
-        }
-
-        private void ConfigureAppSettings()
-        {
-            //IocManager.Register<AppSettingsCfg>();
-            //var appSettingsConfig = IocManager.Resolve<AppSettingsCfg>();
-
-            //appSettingsConfig.SystemCode = _appConfiguration["AppSettings:SystemCode"];
-            //appSettingsConfig.FtpIP = _appConfiguration["AppSettings:FtpIP"];
-            //appSettingsConfig.FtpUid = _appConfiguration["AppSettings:FtpUid"];
-            //appSettingsConfig.FtpPwd = _appConfiguration["AppSettings:FtpPwd"];
-            //appSettingsConfig.FtpVUid = _appConfiguration["AppSettings:FtpVUid"];
-            //appSettingsConfig.FtpVPwd = _appConfiguration["AppSettings:FtpVPwd"];
-            //appSettingsConfig.FtpDir = _appConfiguration["AppSettings:FtpDir"];
-            //appSettingsConfig.FtpDirWorkFlow = _appConfiguration["AppSettings:FtpDirWorkFlow"];
-
-            //appSettingsConfig.ApiSmartCloudInfra = _appConfiguration["AppSettings:ApiSmartCloudInfra"];
-            //appSettingsConfig.ApiSmartCloudWorkFlow = _appConfiguration["AppSettings:ApiSmartCloudWorkFlow"];
-            //appSettingsConfig.TestPhoneNumber = _appConfiguration["AppSettings:TestPhoneNumber"];
-
-
+            Configuration.Modules.AbpWebCommon().SendAllExceptionsToClients = true;
         }
 
         public override void Initialize()
