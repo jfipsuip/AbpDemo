@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Abp.AspNetCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,7 +25,7 @@ namespace AbpDemo.Web.Host.Startup
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
@@ -34,6 +35,8 @@ namespace AbpDemo.Web.Host.Startup
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
                 c.DocInclusionPredicate((docName, description) => true);
             });
+
+            return services.AddAbp<AbpDemoWebHostModule>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +51,9 @@ namespace AbpDemo.Web.Host.Startup
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            // Initializes ABP framework.
+            app.UseAbp();
 
             app.UseHttpsRedirection();
             app.UseMvc(routes =>
