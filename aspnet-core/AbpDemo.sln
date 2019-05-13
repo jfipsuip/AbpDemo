@@ -5,17 +5,39 @@ VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9CFC64D5-282D-49CF-AA30-36C6A4B27933}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbpDemo.Web.Host", "src\AbpDemo.Web.Host\AbpDemo.Web.Host.csproj", "{92B7BCB0-CDE5-437A-85E8-FF5A4058677A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbpDemo.Web.Host", "src\AbpDemo.Web.Host\AbpDemo.Web.Host.csproj", "{92B7BCB0-CDE5-437A-85E8-FF5A4058677A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbpDemo.Application", "src\AbpDemo.Application\AbpDemo.Application.csproj", "{F3C20AC4-CD06-4B76-B19E-61F7ADAE0674}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbpDemo.Application", "src\AbpDemo.Application\AbpDemo.Application.csproj", "{F3C20AC4-CD06-4B76-B19E-61F7ADAE0674}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbpDemo.Core", "src\AbpDemo.Core\AbpDemo.Core.csproj", "{79285ACE-61B0-45CC-B91A-16EA9C3BD16E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbpDemo.Core", "src\AbpDemo.Core\AbpDemo.Core.csproj", "{79285ACE-61B0-45CC-B91A-16EA9C3BD16E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbpDemo.EntityFrameworkCore", "src\AbpDemo.EntityFrameworkCore\AbpDemo.EntityFrameworkCore.csproj", "{7F2DD615-7BE1-4D66-B1BD-830CC09FCB1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbpDemo.EntityFrameworkCore", "src\AbpDemo.EntityFrameworkCore\AbpDemo.EntityFrameworkCore.csproj", "{7F2DD615-7BE1-4D66-B1BD-830CC09FCB1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbpDemo.Migrator", "src\AbpDemo.Migrator\AbpDemo.Migrator.csproj", "{01511452-850A-42E9-8CB7-22FF476FC6AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbpDemo.Migrator", "src\AbpDemo.Migrator\AbpDemo.Migrator.csproj", "{01511452-850A-42E9-8CB7-22FF476FC6AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbpDemo.Web.Core", "src\AbpDemo.Web.Core\AbpDemo.Web.Core.csproj", "{DA12993B-536B-4273-9263-2B6A96180449}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbpDemo.Web.Core", "src\AbpDemo.Web.Core\AbpDemo.Web.Core.csproj", "{DA12993B-536B-4273-9263-2B6A96180449}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "abp", "abp", "{E4A34BC2-2288-417F-BACD-CE4DCFE16AC3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abp", "..\..\aspnetboilerplate\src\Abp\Abp.csproj", "{9C31B918-452D-428E-B638-3C6F4EF8AC7D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abp.AutoMapper", "..\..\aspnetboilerplate\src\Abp.AutoMapper\Abp.AutoMapper.csproj", "{DF9895A9-FA30-400E-BB9D-4BD3A9360E09}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abp.EntityFrameworkCore", "..\..\aspnetboilerplate\src\Abp.EntityFrameworkCore\Abp.EntityFrameworkCore.csproj", "{A746B1F9-1C53-4B2D-BB22-538572CDEDFA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abp.EntityFramework.Common", "..\..\aspnetboilerplate\src\Abp.EntityFramework.Common\Abp.EntityFramework.Common.csproj", "{4F7B1740-2CEC-46B3-8B1D-98F2DB6C0C1E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abp.Castle.Log4Net", "..\..\aspnetboilerplate\src\Abp.Castle.Log4Net\Abp.Castle.Log4Net.csproj", "{B7A8A09B-10BC-4E5B-9701-372756517398}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abp.AspNetCore", "..\..\aspnetboilerplate\src\Abp.AspNetCore\Abp.AspNetCore.csproj", "{58408D4B-A52C-42AE-9375-D130B32564FE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abp.Web.Common", "..\..\aspnetboilerplate\src\Abp.Web.Common\Abp.Web.Common.csproj", "{8F65DCDB-15DD-4463-B020-693238E7803F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abp.AspNetCore.SignalR", "..\..\aspnetboilerplate\src\Abp.AspNetCore.SignalR\Abp.AspNetCore.SignalR.csproj", "{96EFB201-F16B-45EF-AF87-814A72AEC7E3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abp.ZeroCore", "..\..\aspnetboilerplate\src\Abp.ZeroCore\Abp.ZeroCore.csproj", "{EA1887CF-5A01-48F7-88FB-4D4C50F6450F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abp.Zero.Common", "..\..\aspnetboilerplate\src\Abp.Zero.Common\Abp.Zero.Common.csproj", "{74118862-7E7E-48E3-B794-27CB7A2F8B3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +69,46 @@ Global
 		{DA12993B-536B-4273-9263-2B6A96180449}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA12993B-536B-4273-9263-2B6A96180449}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA12993B-536B-4273-9263-2B6A96180449}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C31B918-452D-428E-B638-3C6F4EF8AC7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C31B918-452D-428E-B638-3C6F4EF8AC7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C31B918-452D-428E-B638-3C6F4EF8AC7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C31B918-452D-428E-B638-3C6F4EF8AC7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF9895A9-FA30-400E-BB9D-4BD3A9360E09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF9895A9-FA30-400E-BB9D-4BD3A9360E09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF9895A9-FA30-400E-BB9D-4BD3A9360E09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF9895A9-FA30-400E-BB9D-4BD3A9360E09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A746B1F9-1C53-4B2D-BB22-538572CDEDFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A746B1F9-1C53-4B2D-BB22-538572CDEDFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A746B1F9-1C53-4B2D-BB22-538572CDEDFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A746B1F9-1C53-4B2D-BB22-538572CDEDFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F7B1740-2CEC-46B3-8B1D-98F2DB6C0C1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F7B1740-2CEC-46B3-8B1D-98F2DB6C0C1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F7B1740-2CEC-46B3-8B1D-98F2DB6C0C1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F7B1740-2CEC-46B3-8B1D-98F2DB6C0C1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7A8A09B-10BC-4E5B-9701-372756517398}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7A8A09B-10BC-4E5B-9701-372756517398}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7A8A09B-10BC-4E5B-9701-372756517398}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7A8A09B-10BC-4E5B-9701-372756517398}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58408D4B-A52C-42AE-9375-D130B32564FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58408D4B-A52C-42AE-9375-D130B32564FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58408D4B-A52C-42AE-9375-D130B32564FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58408D4B-A52C-42AE-9375-D130B32564FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F65DCDB-15DD-4463-B020-693238E7803F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F65DCDB-15DD-4463-B020-693238E7803F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F65DCDB-15DD-4463-B020-693238E7803F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F65DCDB-15DD-4463-B020-693238E7803F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96EFB201-F16B-45EF-AF87-814A72AEC7E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96EFB201-F16B-45EF-AF87-814A72AEC7E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96EFB201-F16B-45EF-AF87-814A72AEC7E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96EFB201-F16B-45EF-AF87-814A72AEC7E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA1887CF-5A01-48F7-88FB-4D4C50F6450F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA1887CF-5A01-48F7-88FB-4D4C50F6450F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA1887CF-5A01-48F7-88FB-4D4C50F6450F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA1887CF-5A01-48F7-88FB-4D4C50F6450F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74118862-7E7E-48E3-B794-27CB7A2F8B3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74118862-7E7E-48E3-B794-27CB7A2F8B3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74118862-7E7E-48E3-B794-27CB7A2F8B3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74118862-7E7E-48E3-B794-27CB7A2F8B3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,6 +120,16 @@ Global
 		{7F2DD615-7BE1-4D66-B1BD-830CC09FCB1E} = {9CFC64D5-282D-49CF-AA30-36C6A4B27933}
 		{01511452-850A-42E9-8CB7-22FF476FC6AB} = {9CFC64D5-282D-49CF-AA30-36C6A4B27933}
 		{DA12993B-536B-4273-9263-2B6A96180449} = {9CFC64D5-282D-49CF-AA30-36C6A4B27933}
+		{9C31B918-452D-428E-B638-3C6F4EF8AC7D} = {E4A34BC2-2288-417F-BACD-CE4DCFE16AC3}
+		{DF9895A9-FA30-400E-BB9D-4BD3A9360E09} = {E4A34BC2-2288-417F-BACD-CE4DCFE16AC3}
+		{A746B1F9-1C53-4B2D-BB22-538572CDEDFA} = {E4A34BC2-2288-417F-BACD-CE4DCFE16AC3}
+		{4F7B1740-2CEC-46B3-8B1D-98F2DB6C0C1E} = {E4A34BC2-2288-417F-BACD-CE4DCFE16AC3}
+		{B7A8A09B-10BC-4E5B-9701-372756517398} = {E4A34BC2-2288-417F-BACD-CE4DCFE16AC3}
+		{58408D4B-A52C-42AE-9375-D130B32564FE} = {E4A34BC2-2288-417F-BACD-CE4DCFE16AC3}
+		{8F65DCDB-15DD-4463-B020-693238E7803F} = {E4A34BC2-2288-417F-BACD-CE4DCFE16AC3}
+		{96EFB201-F16B-45EF-AF87-814A72AEC7E3} = {E4A34BC2-2288-417F-BACD-CE4DCFE16AC3}
+		{EA1887CF-5A01-48F7-88FB-4D4C50F6450F} = {E4A34BC2-2288-417F-BACD-CE4DCFE16AC3}
+		{74118862-7E7E-48E3-B794-27CB7A2F8B3C} = {E4A34BC2-2288-417F-BACD-CE4DCFE16AC3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28DCF01A-2979-4800-A39F-AF91686D51F8}
