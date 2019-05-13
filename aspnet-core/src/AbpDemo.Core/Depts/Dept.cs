@@ -28,7 +28,6 @@ namespace AbpDemo.Depts
         /// <summary>
         /// 行政区划
         /// </summary>
-        [ForeignKey(nameof(AreaId))]
         public virtual Area Area { get; set; }
     }
 }
