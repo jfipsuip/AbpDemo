@@ -20,6 +20,9 @@ namespace AbpDemo
             Configuration.Modules.AbpAspNetCore()
                 .CreateControllersForAppServices(
                 typeof(AbpDemoApplicationModule).GetAssembly());
+
+            //设置不隐藏异常信息
+            Configuration.Modules.AbpWebCommon().SendAllExceptionsToClients = true;
         }
 
         public override void Initialize()
