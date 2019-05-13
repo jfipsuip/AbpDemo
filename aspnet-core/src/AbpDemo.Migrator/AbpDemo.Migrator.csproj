@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\aspnetboilerplate\src\Abp.Castle.Log4Net\Abp.Castle.Log4Net.csproj" />
     <ProjectReference Include="..\AbpDemo.Core\AbpDemo.Core.csproj" />
     <ProjectReference Include="..\AbpDemo.EntityFrameworkCore\AbpDemo.EntityFrameworkCore.csproj" />
   </ItemGroup>

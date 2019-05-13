@@ -16,6 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\aspnetboilerplate\src\Abp.AspNetCore.SignalR\Abp.AspNetCore.SignalR.csproj" />
+    <ProjectReference Include="..\..\..\..\aspnetboilerplate\src\Abp.AspNetCore\Abp.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\..\..\aspnetboilerplate\src\Abp.ZeroCore\Abp.ZeroCore.csproj" />
     <ProjectReference Include="..\AbpDemo.Application\AbpDemo.Application.csproj" />
     <ProjectReference Include="..\AbpDemo.EntityFrameworkCore\AbpDemo.EntityFrameworkCore.csproj" />
   </ItemGroup>
