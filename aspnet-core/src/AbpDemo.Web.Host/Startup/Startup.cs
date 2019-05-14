@@ -12,6 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
+using Castle.Facilities.Logging;
+using Abp.Castle.Logging.Log4Net;
 
 namespace AbpDemo.Web.Host.Startup
 {
@@ -36,7 +38,13 @@ namespace AbpDemo.Web.Host.Startup
                 c.DocInclusionPredicate((docName, description) => true);
             });
 
-            return services.AddAbp<AbpDemoWebHostModule>();
+            // Configure Abp and Dependency Injection
+            return services.AddAbp<AbpDemoWebHostModule>(
+                // Configure Log4Net logging
+                options => options.IocManager.IocContainer.AddFacility<LoggingFacility>(
+                    f => f.UseAbpLog4Net().WithConfig("log4net.config")
+                )
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
