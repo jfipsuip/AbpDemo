@@ -1,5 +1,4 @@
-﻿using AbpDemo.Areas;
-using AbpDemo.AuditLogs;
+﻿using AbpDemo.AuditLogs;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
