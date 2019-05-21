@@ -9,6 +9,7 @@ namespace AbpDemo.EntityFrameworkCore
     public class AbpDemoDbContext : AbpDbContext
     {
         /* Define a DbSet for each entity of the application */
+        public DbSet<AuditLogs.AuditLog> AuditLog { get; set; }
         public AbpDemoDbContext(DbContextOptions<AbpDemoDbContext> options)
             : base(options)
         {
