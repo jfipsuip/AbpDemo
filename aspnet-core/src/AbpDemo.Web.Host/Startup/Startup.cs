@@ -131,7 +131,16 @@ namespace AbpDemo.Web.Host.Startup
             // Enable middleware to serve swagger-ui assets (HTML, JS, CSS etc.)
             app.UseSwaggerUI(options =>
             {
-                options.SwaggerEndpoint(_appConfiguration["App:ServerRootAddress"].EnsureEndsWith('/') + "swagger/v1/swagger.json", "AbpDemo API V1");
+                string url;
+                if (_appConfiguration["App:ServerRootAddress"].IsNullOrEmpty())
+                {
+                    url = string.Empty;
+                }
+                else
+                {
+                    url = $"{_appConfiguration["App:ServerRootAddress"].EnsureEndsWith('/')}/swagger/";
+                }
+                options.SwaggerEndpoint($"{url}v1/swagger.json", "AbpDemo API V1");
                 options.IndexStream = () => Assembly.GetExecutingAssembly()
                     .GetManifestResourceStream("AbpDemo.Web.Host.wwwroot.swagger.ui.index.html");
             }); // URL: /swagger
