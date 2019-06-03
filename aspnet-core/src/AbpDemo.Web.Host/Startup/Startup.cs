@@ -46,17 +46,29 @@ namespace AbpDemo.Web.Host.Startup
             services.AddCors(
                 options => options.AddPolicy(
                     _defaultCorsPolicyName,
-                    builder => builder
-                        .WithOrigins(
-                            // App:CorsOrigins in appsettings.json can contain more than one address separated by comma.
-                            _appConfiguration["App:CorsOrigins"]
-                                .Split(",", StringSplitOptions.RemoveEmptyEntries)
-                                .Select(o => o.RemovePostFix("/"))
-                                .ToArray()
-                        )
+                    builder =>
+                    {
+                        if (!string.IsNullOrEmpty(_appConfiguration["App:CorsOrigins"]))
+                        {
+                            builder
+                                .WithOrigins(
+                                    // App:CorsOrigins in appsettings.json can contain more than one address separated by comma.
+                                    _appConfiguration["App:CorsOrigins"]
+                                        .Split(",", StringSplitOptions.RemoveEmptyEntries)
+                                        .Select(o => o.RemovePostFix("/"))
+                                        .ToArray()
+                                );
+                        }
+                        else
+                        {
+                            builder
+                            .AllowAnyOrigin();
+                        }
+                        builder
                         .AllowAnyHeader()
                         .AllowAnyMethod()
-                        .AllowCredentials()
+                        .AllowCredentials();
+                    }
                 )
             );
 
