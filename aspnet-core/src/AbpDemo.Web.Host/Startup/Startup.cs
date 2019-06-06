@@ -14,14 +14,20 @@ using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
 using Castle.Facilities.Logging;
 using Abp.Castle.Logging.Log4Net;
+using Microsoft.AspNetCore.Mvc.Cors.Internal;
+using AbpDemo.Configuration;
 
 namespace AbpDemo.Web.Host.Startup
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private const string _defaultCorsPolicyName = "localhost";
+
+        private readonly IConfigurationRoot _appConfiguration;
+
+        public Startup(IHostingEnvironment env)
         {
-            Configuration = configuration;
+            _appConfiguration = env.GetAppConfiguration();
         }
 
         public IConfiguration Configuration { get; }
@@ -29,13 +35,35 @@ namespace AbpDemo.Web.Host.Startup
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc(options => options.Filters.Add(new CorsAuthorizationFilterFactory(_defaultCorsPolicyName)));
+            AuthConfigurer.Configure(services, _appConfiguration);
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddCors(
+                options => options.AddPolicy(
+                    _defaultCorsPolicyName,
+                    builder => builder
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials()
+                    )
+                    );
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
                 c.DocInclusionPredicate((docName, description) => true);
+                // Define the BearerAuth scheme that's in use
+                c.AddSecurityDefinition("bearerAuth", new ApiKeyScheme()
+                {
+                    Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+                    Name = "Authorization",
+                    In = "header",
+                    Type = "apiKey"
+                });
             });
 
             // Configure Abp and Dependency Injection
@@ -64,6 +92,9 @@ namespace AbpDemo.Web.Host.Startup
             app.UseAbp();
 
             app.UseHttpsRedirection();
+
+            app.UseAuthentication();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -77,7 +108,7 @@ namespace AbpDemo.Web.Host.Startup
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.SwaggerEndpoint("v1/swagger.json", "My API V1");
             });
         }
     }
