@@ -3,6 +3,7 @@ using Abp.AspNetCore.Configuration;
 using Abp.Configuration.Startup;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
+using Abp.Runtime.Caching.Redis;
 using AbpDemo.Authentication.JwtBearer;
 using AbpDemo.Configuration;
 using AbpDemo.EntityFrameworkCore;
@@ -39,6 +40,25 @@ namespace AbpDemo
 
             //设置不隐藏异常信息
             Configuration.Modules.AbpWebCommon().SendAllExceptionsToClients = true;
+            #region 缓存配置
+            //配置所有Cache的默认过期时间30天
+            Configuration.Caching.ConfigureAll(cache =>
+            {
+                cache.DefaultSlidingExpireTime = TimeSpan.FromDays(30);
+            });
+
+            //配置指定的Cache过期时间为45秒
+            Configuration.Caching.Configure("LoginTokenCache", cache =>
+            {
+                cache.DefaultSlidingExpireTime = TimeSpan.FromSeconds(45);
+            });
+
+            Configuration.Caching.UseRedis(options =>
+            {
+                options.ConnectionString = _appConfiguration["Abp:RedisCache:ConnectionString"];
+                options.DatabaseId = _appConfiguration.GetValue<int>("Abp:RedisCache:DatabaseId");
+            });
+            #endregion
 
             ConfigureTokenAuth();
         }
