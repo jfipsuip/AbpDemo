@@ -42,7 +42,7 @@ namespace WebApp.Application.Sessions
         [AllowAnonymous]
         public void SetCache(string ticket, string value)
         {
-            TimeSpan expireTime = TimeSpan.FromSeconds(10);
+            TimeSpan expireTime = TimeSpan.FromSeconds(100);
             cacheManager.GetCache("LoginTokenCache").Set(ticket, value, expireTime);
         }
         [AllowAnonymous]

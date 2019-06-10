@@ -18,7 +18,8 @@ namespace AbpDemo
     [DependsOn(
         typeof(AbpDemoApplicationModule),
         typeof(AbpDemoEntityFrameworkModule),
-        typeof(AbpAspNetCoreModule))]
+        typeof(AbpAspNetCoreModule),
+        typeof(AbpRedisCacheModule))]
     public class AbpDemoWebCoreModule : AbpModule
     {
         private readonly IHostingEnvironment _env;
