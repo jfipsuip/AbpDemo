@@ -19,7 +19,7 @@ namespace AbpDemo.SysFileInfos
         public DateTime CreationTime { get; set; }
         public DateTime LastWriteTime { get; set; }
         public DateTime LastAccessTime { get; set; }
-        [StringLength(36)]
+        [StringLength(50)]
         public string SHA1 { get; set; }
         public TimeSpan TimeSpan { get; set; }
     }
