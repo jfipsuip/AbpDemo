@@ -25,7 +25,7 @@ namespace AbpDemo
 
             Configuration.Caching.UseRedis(options =>
             {
-                options.ConnectionString = "172.16.4.121";
+                options.ConnectionString = "windows2008";
                 options.DatabaseId = -1;
             });
         }
