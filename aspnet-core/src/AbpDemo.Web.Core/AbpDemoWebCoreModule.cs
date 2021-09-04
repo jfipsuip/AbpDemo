@@ -15,7 +15,7 @@ namespace AbpDemo
     {
         public override void PreInitialize()
         {
-            Configuration.DefaultNameOrConnectionString = "server=windows2008;uid=sa;pwd=sa;database=AbpDemo;";
+            Configuration.DefaultNameOrConnectionString = "Server=localhost; Database=AbpDemoDb; Trusted_Connection=True;";
 
             Configuration.Modules.AbpAspNetCore()
                 .CreateControllersForAppServices(
