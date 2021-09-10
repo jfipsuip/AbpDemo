@@ -16,5 +16,13 @@ namespace AbpDemo.Persons
         public PersonService(IRepository<Person, Guid> repository) : base(repository)
         {
         }
+        public async Task<StudentDto> GetStudent(EntityDto<Guid> entityDto)
+        {
+            Person entity = await Repository.GetAsync(entityDto.Id);
+
+            StudentDto student = AutoMapper.Mapper.Map<StudentDto>(entity);
+
+            return student;
+        }
     }
 }
