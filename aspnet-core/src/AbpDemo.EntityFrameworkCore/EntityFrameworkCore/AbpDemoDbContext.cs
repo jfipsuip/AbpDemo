@@ -1,6 +1,7 @@
 ﻿using Abp.EntityFrameworkCore;
 using AbpDemo.Areas;
 using AbpDemo.Depts;
+using AbpDemo.Persons;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
@@ -13,6 +14,9 @@ namespace AbpDemo.EntityFrameworkCore
         /* Define a DbSet for each entity of the application */
         public DbSet<Area> Area { get; set; }
         public DbSet<Dept> Dept { get; set; }
+
+        public DbSet<Person> Person { get; set; }
+
 
         public AbpDemoDbContext(DbContextOptions<AbpDemoDbContext> options)
             : base(options)
