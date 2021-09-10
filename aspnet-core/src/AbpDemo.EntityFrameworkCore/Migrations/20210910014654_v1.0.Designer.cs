@@ -4,14 +4,16 @@ using AbpDemo.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AbpDemo.Migrations
 {
     [DbContext(typeof(AbpDemoDbContext))]
-    partial class AbpDemoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210910014654_v1.0")]
+    partial class v10
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,9 +72,6 @@ namespace AbpDemo.Migrations
 
                     b.Property<string>("LastName")
                         .HasMaxLength(100);
-
-                    b.Property<string>("Sex")
-                        .HasMaxLength(10);
 
                     b.HasKey("Id");
 
